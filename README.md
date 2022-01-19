@@ -117,7 +117,7 @@ DELETE FROM users WHERE email = 'gretaboogie@email.com'
 
 
 
-SAKILA CHALLENGE
+# SAKILA CHALLENGE
 1. SELECT first_name, last_name FROM actor
 
 2. SELECT * FROM actor WHERE first_name = 'John'
