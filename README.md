@@ -114,3 +114,87 @@ DELETE FROM orders WHERE order_id = 8
 
 users table:
 DELETE FROM users WHERE email = 'gretaboogie@email.com'
+
+
+
+SAKILA CHALLENGE
+1. SELECT first_name, last_name FROM actor
+
+2. SELECT * FROM actor WHERE first_name = 'John'
+
+3. SELECT * FROM actor WHERE last_name = 'Neeson'
+
+4. SELECT first_name, last_name, actor_id FROM actor WHERE actor_id/10 = floor(actor_id/10)
+
+5. SELECT description FROM film WHERE film_id = 100;
+
+6. SELECT * FROM film WHERE rating = 'R';
+
+7. SELECT * FROM film WHERE rating != 'R';
+
+8. SELECT * FROM film order by length ASC limit 10;
+
+9. SELECT * FROM film order by length DESC
+
+10. SELECT * FROM film WHERE special_features LIKE '%Deleted Scenes%';
+
+11. SELECT distinct(last_name) FROM actor ORDER BY last_name DESC;
+
+12. 
+SELECT last_name, count(last_name) as numOfActorsLastName
+FROM actor 
+group by last_name
+having numOfActorsLastName > 1
+order by numOfActorsLastName desc
+
+13. 
+SELECT first_name, last_name, count(a.actor_id) as numOfFilms
+FROM actor a
+join film_actor fa on a.actor_id=fa.actor_id
+group by fa.actor_id
+order by numOfFilms desc limit 1
+
+14.
+
+15.SELECT avg(length) FROM film
+
+16.
+SELECT c.name, avg(f.length) as avgRuntime
+FROM film_category fc
+join film f on fc.film_id=f.film_id
+join category c on fc.category_id=c.category_id  
+group by name
+
+17. SELECT * FROM film WHERE description LIKE '%ROBOT%';
+
+18. SELECT count(release_year) FROM film WHERE release_year = 2010;
+
+19. 
+SELECT f.title, c.name
+FROM film_category fc
+join film f on fc.film_id=f.film_id
+join category c on fc.category_id=c.category_id  
+where c.name = 'Horror'
+
+20. SELECT first_name, last_name FROM staff where staff_id = 2
+
+21. 
+SELECT first_name, last_name, title
+FROM actor a
+join film_actor fa on a.actor_id=fa.actor_id
+join film f on fa.film_id=f.film_id
+where first_name = 'Fred' and last_name = 'Costner';
+
+22.SELECT count(DISTINCT(COUNTRY)) as uniqueCountries FROM country
+
+23. SELECT name FROM language order by name DESC
+
+24. SELECT first_name, last_name FROM actor where last_name like '%son' order by first_name ASC
+
+25. 
+SELECT name, count(name) as categoryCount
+FROM film_category fc
+join category c on fc.category_id=c.category_id
+group by name 
+order by categoryCount DESC
+
